@@ -197,8 +197,8 @@ namespace TU_Challenge
         /// <summary>
         /// Test pas obligatoire mais essayez un peu quand même. N'hésitez pas à me demander de l'aide
         /// </summary>
-        /*[Test]
-        /* public void GenericSort()
+        [Test]
+         public void GenericSort()
          {
              var toSort = new List<int>() { 12, 0, -1, 123, 45, 90, -123 };
 
@@ -223,7 +223,7 @@ namespace TU_Challenge
              {
                  Assert.IsTrue(result[i] > result[i + 1]);
              }
-         }*/
+         }
 
     }
 }
