@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,15 @@ namespace TU_Challenge
 
         public static bool IsMajeur(int age)
         {
-            return age >= 18;
-
+            if (age >= 0 && age < 145)
+            {
+                if(age >= 18)
+                {
+                    return true;
+                }
+                return false;
+            }
+            throw new ArgumentException();
         }
 
         public static bool IsPrimary(int a)
@@ -99,13 +107,31 @@ namespace TU_Challenge
 
         public static int Power2(int a)
         {
-            return (int)Math.Pow(a, 2);
+            return a*a;
         }
 
-        public static List<int> Sort(List<int> toSort)
+        public static List<int> Sort(List<int> list)
         {
-            
-
+            for(int i = 1; i <list.Count; i++)
+            {
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (j == i)
+                    {
+                        continue;
+                    }
+                    if (list[i] < list[j] && i > j)
+                    {
+                        int temp = list[i];
+                        for (int k = i; k> j; k--)
+                        {
+                            list[k] = list[k-1];
+                        }
+                        list[j] = temp;
+                    }
+                }
+            }
+            return list;
         }
     }
 }
