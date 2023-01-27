@@ -149,7 +149,20 @@ namespace TU_Challenge
 
         public static string ToCesarCode(string input, int offset)
         {
-            throw new NotImplementedException();
+            char[] output = input.ToCharArray();
+            for (int i = 0; i < output.Length; i++)
+            {
+                if (string.Compare(ToLowerCase(output[i].ToString()), "a") >= 0 && string.Compare(ToLowerCase(output[i].ToString()), "z") <= 0)
+                {
+                    int b = (int)output[i] + offset;
+                    if (b > (int)'z')
+                    {
+                        b -= 26;
+                    }
+                    output[i] = (char)b;
+                }
+            }
+            return new string(output);
         }
     }
 }
